@@ -14,3 +14,28 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.truncate {
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn {
+  border: 1px solid #0070f3;
+  padding: 10px 10px;
+  margin-block: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: #0070f3;
+  font-size: medium;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
