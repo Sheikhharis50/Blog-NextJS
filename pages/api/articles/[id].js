@@ -1,4 +1,4 @@
-import prisma from '../../../prisma'
+import prisma from '../../../services/prisma';
 
 export default async function handler({ query: { id } }, res) {
     const article = await prisma.article.findUnique({

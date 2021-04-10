@@ -4,7 +4,7 @@
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
-  margin-top: 3rem;
+  margin-top: 4em;
 }
 
 .card {
@@ -39,6 +39,12 @@
 
 .logo {
   height: 1em;
+}
+
+.addArticle button {
+  margin-inline: 2em;
+  margin-block: 1em;
+  padding: 0.8em;
 }
 
 @media (max-width: 600px) {
