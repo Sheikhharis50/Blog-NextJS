@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { ENV } from "../config"
+import { ENV } from "../../config"
 
 // PrismaClient is attached to the `global` object in development to prevent
 // exhausting your database connection limit.

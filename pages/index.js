@@ -1,18 +1,19 @@
-import Articles from '../components/Articles';
-import AddArticle from '../components/Articles/AddArticle';
-import { BASE_URL } from '../config';
-import Meta from '../components/Meta';
+import Articles from "../components/Articles";
+import AddArticle from "../components/Articles/AddArticle";
+import Layout from "../components/Layout";
+import { BASE_URL } from "../config";
+import Meta from "../components/Meta";
 
 export default function Home({ articles }) {
   return (
-    <div>
-      <Meta title="Home" />
-      <AddArticle />
-      <Articles
-        articles={articles}
-      />
-    </div>
-  )
+    <Layout>
+      <div>
+        <Meta title="Home" />
+        <AddArticle />
+        <Articles articles={articles} />
+      </div>
+    </Layout>
+  );
 }
 
 export const getStaticProps = async () => {
@@ -26,7 +27,7 @@ export const getStaticProps = async () => {
   }
   return {
     props: {
-      articles
-    }
-  }
-}
+      articles,
+    },
+  };
+};
