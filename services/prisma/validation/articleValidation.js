@@ -36,17 +36,18 @@ export const is_authenticate = async ({ email, password }) => {
     where: { email: email },
   });
 
-  const match = await bcrypt.compare(password, user?.password);
-
-  if (user && match) {
-    delete user.password;
-    return {
-      status: true,
-      data: user,
-    };
-  } else
-    return {
-      status: false,
-      message: `User not found!`,
-    };
+  if (user) {
+    const match = await bcrypt.compare(password, user?.password);
+    if (match) {
+      delete user.password;
+      return {
+        status: true,
+        data: user,
+      };
+    }
+  }
+  return {
+    status: false,
+    message: `User not found!`,
+  };
 };

@@ -65,20 +65,26 @@ const login = () => {
   const router = useRouter();
   const [formData, setFormData] = useState(initialValues);
 
+  const showErrorMessage = (message) => {
+    setFormData({ ...initialValues, errorMessage: message });
+    setTimeout(() => {
+      setFormData({ ...initialValues });
+    }, 1500);
+  };
+
   const onSubmitHandel = async (e) => {
     e.preventDefault();
     let message = "Email and password required!";
-    if (!isEmptyObj(formData)) {
+    if (formData.email && formData.password) {
       const res = await postData("auth/login", formData);
-      console.log(res);
-      // if (res.status) {
-      //   setKeyAndVal("userData", res.data);
-      //   router.push("/");
-      //   return;
-      // }
-      // message = res.message;
+      if (res.status) {
+        setKeyAndVal("userData", res.data);
+        router.push("/");
+        return;
+      }
+      message = res.message;
     }
-    // setFormData({ ...initialValues, errorMessage: message });
+    showErrorMessage(message);
   };
 
   return (

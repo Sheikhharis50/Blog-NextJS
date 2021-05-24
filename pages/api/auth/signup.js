@@ -2,6 +2,18 @@ import prisma from "../../../services/prisma/prisma";
 import { articleValidation } from "../../../services/prisma/validation/articleValidation";
 import bcrypt from "bcrypt";
 
+export default async function handler(req, res) {
+  let response = { status: false };
+  let status = 404;
+
+  if (req.method === "POST") {
+    response = await signup(req.body);
+    status = 200;
+  }
+
+  res.status(status).send(response);
+}
+
 const saltRounds = process.env.SALT_ROUNDS
   ? parseInt(process.env.SALT_ROUNDS)
   : 10;
@@ -41,15 +53,3 @@ const signup = async (data) => {
   }
   return payload;
 };
-
-export default async function handler(req, res) {
-  let response = { status: false };
-  let status = 404;
-
-  if (req.method === "POST") {
-    response = await signup(req.body);
-    status = 200;
-  }
-
-  res.status(status).send(response);
-}

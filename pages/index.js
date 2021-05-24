@@ -6,7 +6,7 @@ import Meta from "../components/Meta";
 
 export default function Home({ articles }) {
   return (
-    <Layout>
+    <Layout header={true}>
       <div>
         <Meta title="Home" />
         <AddArticle />

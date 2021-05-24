@@ -1,4 +1,4 @@
-import prisma from '../../../services/prisma';
+import prisma from '../../../services/prisma/prisma';
 
 const fetchAllArticles = async () => {
     var payload = {
